@@ -8,9 +8,12 @@ class Vaccine extends React.Component {
       this.state={
         short : '1000000',
         have: true,
+        count: 5,
       }
     }
-
+    handleClick(){
+      this.setState({count: this.state.count+1})
+    }
   render() {
     if (!this.state.have){
       return <div>Not found</div>;
@@ -27,6 +30,8 @@ class Vaccine extends React.Component {
         <div className="vaccine__item">{this.props.technology}</div>
         <div>{this.state.short}</div>
         <div>{`${this.state.have}`}</div>
+        <button onClick={this.handleClick.bind(this)}>Increment count</button>
+        <h1>count: {this.state.count}</h1>
       </div>
     );
   }
